@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:teste/models/model_caracter.dart';
-import 'package:teste/repository.dart';
+import 'package:teste/repository/repository.dart';
 
 class CaracterController extends GetxController {
   RxList<Caracter> characters = <Caracter>[].obs;
