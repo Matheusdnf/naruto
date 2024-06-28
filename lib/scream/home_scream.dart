@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/controler/caracter_controler.dart';
-import 'package:teste/models/model_caracter.dart'; // Verifique o caminho do seu modelo
+import 'package:teste/models/model_caracter.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final CaracterController characterController =
@@ -16,11 +14,11 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Personagens de Naruto'),
       ),
       body: Obx(() {
-        if (characterController.characters.isEmpty) {
-          // Caso não haja personagens carregados ainda
+        if (characterController.isLoading.value) {
           return const Center(
-              child: Text('deu ruim')); // Exemplo de indicador de carregamento
-        } else {
+              child:
+                  CircularProgressIndicator()); // Exemplo de indicador de carregamento
+        } else if (characterController.characters.isNotEmpty) {
           // Caso haja personagens carregados
           return ListView.builder(
             itemCount: characterController.characters.length,
@@ -35,6 +33,14 @@ class HomeScreen extends StatelessWidget {
               );
             },
           );
+        } else if (characterController.characters.isEmpty &&
+            !characterController.isLoading.value) {
+          return Center(
+            child: Text(
+                'Não foi possível carregar os personagens'), // Exibe uma mensagem indicando que não foi possível carregar os
+          );
+        } else {
+          return Center(child: Text('Erro desconhecido'));
         }
       }),
     );
