@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:teste/dependency.dart';
 import 'package:teste/scream/first_scream.dart';
-import 'package:teste/scream/home_scream.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  DependencyInjection.init();
 }
 
 class MyApp extends StatelessWidget {
