@@ -1,8 +1,6 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class NewtworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
@@ -15,8 +13,8 @@ class NewtworkController extends GetxController {
   void _updateConnectionStatus(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.none) {
       Get.rawSnackbar(
-          messageText: Text(
-            'Por favor Conectese a internet ! ',
+          messageText: const Text(
+            'Por favor Conecte-se a internet ! ',
             style: TextStyle(
               color: Colors.black,
               fontSize: 15,
