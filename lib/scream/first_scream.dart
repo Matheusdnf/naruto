@@ -19,11 +19,11 @@ class FirstScream extends StatelessWidget {
                   modelo: [
                     ModelButtonInformation(
                       nome: 'Desenvolvedores',
-                      icon: Icon(Icons.people_alt_outlined),
+                      icon: const Icon(Icons.people_alt_outlined),
                     ),
                     ModelButtonInformation(
                       nome: 'Sobre',
-                      icon: Icon(Icons.integration_instructions),
+                      icon: const Icon(Icons.integration_instructions),
                     ),
                   ],
                 ),
@@ -33,7 +33,7 @@ class FirstScream extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     LogoApp(),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ButtonInicial(),
                   ],
                 ),

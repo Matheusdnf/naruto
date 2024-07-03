@@ -5,7 +5,7 @@ class LogoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       textAlign: TextAlign.center,
-      text: TextSpan(
+      text: const TextSpan(
         children: [
           TextSpan(
             text: 'DRAGON',
