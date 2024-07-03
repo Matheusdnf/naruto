@@ -35,12 +35,12 @@ class HomeScreen extends StatelessWidget {
           );
         } else if (characterController.characters.isEmpty &&
             !characterController.isLoading.value) {
-          return Center(
+          return const Center(
             child: Text(
                 'Não foi possível carregar os personagens'), // Exibe uma mensagem indicando que não foi possível carregar os
           );
         } else {
-          return Center(child: Text('Erro desconhecido'));
+          return const Center(child: Text('Erro desconhecido'));
         }
       }),
     );

@@ -18,8 +18,6 @@ class CaracterController extends GetxController {
       final List<Caracter> fetchedCharacters =
           await Caracterreposity().getCaracter();
       characters.assignAll(fetchedCharacters);
-      print(
-          'Characters loaded: ${characters.length}'); // Adicione este log para verificar o número de personagens carregados
     } catch (e) {
       print(
           'Error fetching characters: $e'); // Adicione este log para verificar o erro

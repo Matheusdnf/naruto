@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:teste/scream/home_scream.dart';
-import 'package:teste/scream/home_scream.dart';
 import 'package:get/get.dart';
 
 class ModelButtonInformation {
@@ -41,13 +40,12 @@ class ButtonInicial extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           Get.to(HomeScreen());
-          print('apertado');
         },
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           backgroundColor: Colors.black,
         ),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.play_arrow, color: Colors.yellowAccent),
