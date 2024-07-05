@@ -3,12 +3,12 @@ import 'package:teste/models/model_caracter.dart';
 import 'package:teste/repository.dart';
 
 class CaracterController extends GetxController {
-  RxList<Caracter> characters = <Caracter>[].obs;
-  RxBool isLoading = true.obs;
-  var page = 1.obs; // Número da página atual.
+  final Caracterreposity reposity;
+  CaracterController(this.reposity);
 
-
-  CaracterController(Caracterreposity caracterreposity);
+  var characters = <Caracter>[].obs; // Esta linha declara uma variável characters que é uma lista de objetos do tipo Caracter. inicializa vazia.
+  var isLoading = false.obs;
+  var page = 1.obs;
 
   @override
   void onInit() { // Método que é chamado quando o controlador é inicializado. Aqui, chamamos fetchCharacters para buscar a primeira página de personagens.
