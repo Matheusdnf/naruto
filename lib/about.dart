@@ -3,13 +3,15 @@ import 'package:google_fonts/google_fonts.dart'; // Importe o pacote google_font
 import 'dart:ui'; // Import necessário para usar o BackdropFilter
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Página Inicial',
       home: HomePage(),
     );
@@ -17,13 +19,15 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Página Inicial'),
+        title: const Text('Página Inicial'),
       ),
-      body: Stack(
+      body: const Stack(
         fit: StackFit.expand,
         children: [
           BlurredBackground(),
@@ -35,6 +39,8 @@ class HomePage extends StatelessWidget {
 }
 
 class BlurredBackground extends StatelessWidget {
+  const BlurredBackground({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -56,6 +62,8 @@ class BlurredBackground extends StatelessWidget {
 }
 
 class Content extends StatelessWidget {
+  const Content({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -84,7 +92,7 @@ class Content extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Projeto :',
                             style: TextStyle(
                               fontFamily: 'NJNaruto',
@@ -92,13 +100,13 @@ class Content extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Text(
                             'Este é um pequeno texto que descreve algo interessante. '
                             'Aqui você pode adicionar qualquer informação relevante que '
                             'deseja compartilhar na sua página inicial.',
                             style: GoogleFonts.roboto(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.white,
                               ),
@@ -108,7 +116,7 @@ class Content extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Image.asset(
                       'web/assets/assets/naruto.jpg',
                       width: 150,
@@ -116,81 +124,96 @@ class Content extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16), // Espaçamento entre os conjuntos de conteúdo
+                const SizedBox(height: 16), // Espaçamento entre os conjuntos de conteúdo
 
                 // Segundo conjunto de título acima da imagem e texto ao lado da imagem
-                Column(
-                  //crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Desenvolvedores :',
-                      style: TextStyle(
-                        fontFamily: 'NJNaruto',
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          'web/assets/assets/desc.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                        SizedBox(width: 16),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Matheus Diniz Fernandes',
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              textAlign: TextAlign.justify,
-                            ),
-                            SizedBox(height: 16),
-                            Text(
-                              'Redes Sociais: ',
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              textAlign: TextAlign.justify,
-                            ),
-                            SizedBox(height: 2),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'web/assets/assets/email2.png',
-                                  width: 48,
-                                  height: 48,
-                                ),
-                                SizedBox(width: 8),
-                                Image.asset(
-                                  'web/assets/assets/git.png',
-                                  width: 48,
-                                  height: 48,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                const DeveloperInfo(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class DeveloperInfo extends StatelessWidget {
+  const DeveloperInfo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Desenvolvedores:',
+          style: TextStyle(
+            fontFamily: 'NJNaruto',
+            fontSize: 20,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              'web/assets/assets/desc.png',
+              width: 100,
+              height: 100,
+            ),
+            const SizedBox(width: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Matheus Diniz Fernandes',
+                  style: GoogleFonts.roboto(
+                    textStyle: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'Redes Sociais:',
+                  style: GoogleFonts.roboto(
+                    textStyle: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 2),
+                Row(
+                  children: [
+                    Image.asset(
+                      'web/assets/assets/email2.png',
+                      width: 48,
+                      height: 48,
+                    ),
+                    const SizedBox(width: 8),
+                    Image.asset(
+                      'web/assets/assets/git.png',
+                      width: 48,
+                      height: 48,
+                    ),
+                    const SizedBox(width: 2),
+                    Image.asset(
+                      'web/assets/assets/git.png',
+                      width: 48,
+                      height: 48,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
