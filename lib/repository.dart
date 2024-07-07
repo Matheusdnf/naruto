@@ -3,13 +3,14 @@ import 'package:teste/models/model_caracter.dart';
 import 'package:http/http.dart' as http;
 
 abstract class Ipersonagemreposity {
-  Future<List<Caracter>> getCaracter();
+  Future<List<Caracter>> getCaracter(int page); // (int page) Atualizamos o método para aceitar um número de página dinâmico. A URL da API agora é construída com base no número da página e no limite de itens por página.
 }
 
 class Caracterreposity implements Ipersonagemreposity {
   @override
-  Future<List<Caracter>> getCaracter() async {
-    const url = 'https://narutodb.xyz/api/character';
+  Future<List<Caracter>> getCaracter(int page) async {
+    const limit = 20; // Limite de personagens requeridos
+    final url = 'https://narutodb.xyz/api/character?page=$page&limit=$limit';
 
     final response = await http.get(Uri.parse(url));
 
