@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/controler/caracter_controler.dart';
-<<<<<<< HEAD
 import 'package:teste/models/model_caracter.dart'; // Verifique o caminho do seu modelo
 import 'package:teste/repository.dart';
 
@@ -32,11 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-=======
-import 'package:teste/models/model_caracter.dart';
-
-class HomeScreen extends StatelessWidget {
->>>>>>> main
   @override
   Widget build(BuildContext context) {
     return Scaffold(

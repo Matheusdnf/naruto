@@ -124,7 +124,8 @@ class Content extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16), // Espaçamento entre os conjuntos de conteúdo
+                const SizedBox(
+                    height: 16), // Espaçamento entre os conjuntos de conteúdo
 
                 // Segundo conjunto de título acima da imagem e texto ao lado da imagem
                 const DeveloperInfo(),
