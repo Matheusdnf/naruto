@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/controler/caracter_controler.dart';
+<<<<<<< HEAD
 import 'package:teste/models/model_caracter.dart'; // Verifique o caminho do seu modelo
 import 'package:teste/repository.dart';
 
@@ -31,6 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+=======
+import 'package:teste/models/model_caracter.dart';
+
+class HomeScreen extends StatelessWidget {
+>>>>>>> main
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,11 +44,20 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Personagens de Naruto'),
       ),
       body: Obx(() {
+<<<<<<< HEAD
         if (controller.characters.isEmpty && controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator()); // exibimos um CircularProgressIndicator indicando que mais dados estão sendo carregados.
         } else if (controller.characters.isEmpty && !controller.isLoading.value) {
           return const Center(child: Text('Nenhum personagem encontrado.')); // Caso não haja personagens
         } else {
+=======
+        if (characterController.isLoading.value) {
+          return const Center(
+              child:
+                  CircularProgressIndicator()); // Exemplo de indicador de carregamento
+        } else if (characterController.characters.isNotEmpty) {
+          // Caso haja personagens carregados
+>>>>>>> main
           return ListView.builder(
             controller: _scrollController,
             itemCount: controller.characters.length + (controller.isLoading.value ? 1 : 0),
@@ -64,6 +79,14 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
           );
+        } else if (characterController.characters.isEmpty &&
+            !characterController.isLoading.value) {
+          return const Center(
+            child: Text(
+                'Não foi possível carregar os personagens'), // Exibe uma mensagem indicando que não foi possível carregar os
+          );
+        } else {
+          return const Center(child: Text('Erro desconhecido'));
         }
       }),
     );

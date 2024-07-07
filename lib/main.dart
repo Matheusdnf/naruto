@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/scream/home_scream.dart';
+import 'package:teste/controler/dependency.dart';
+import 'package:teste/scream/first_scream.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  DependencyInjection.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: FirstScream(),
     );
   }
 }
