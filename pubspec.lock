@@ -41,16 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-<<<<<<< HEAD
-  crypto:
-    dependency: transitive
-    description:
-      name: crypto
-      sha256: ff625774173754681d66daaf4a448684fb04b78f902da9cb3d308c19cc5e8bab
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.3"
-=======
   connectivity:
     dependency: "direct main"
     description:
@@ -83,7 +73,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
->>>>>>> main
+  crypto:
+    dependency: transitive
+    description:
+      name: crypto
+      sha256: ff625774173754681d66daaf4a448684fb04b78f902da9cb3d308c19cc5e8bab
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.3"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -235,7 +232,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
-<<<<<<< HEAD
   path_provider:
     dependency: transitive
     description:
@@ -292,8 +288,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.5"
-=======
->>>>>>> main
   plugin_platform_interface:
     dependency: transitive
     description:

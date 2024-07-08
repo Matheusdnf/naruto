@@ -6,8 +6,8 @@ class CaracterController extends GetxController {
   final Caracterreposity reposity;
   CaracterController(this.reposity);
 
-  var characters = <Caracter>[]
-      .obs; // Esta linha declara uma variável characters que é uma lista de objetos do tipo Caracter. inicializa vazia.
+  var characters = <Caracter>[].obs;
+  // Esta linha declara uma variável characters que é uma lista de objetos do tipo Caracter. inicializa vazia.
   var isLoading = false.obs;
   var page = 1.obs;
 
@@ -26,8 +26,10 @@ class CaracterController extends GetxController {
 
       final List<Caracter> newCharacters =
           await Caracterreposity().getCaracter(page.value);
-      characters.addAll(newCharacters); // Novos personagens requeridos
-      page.value++; // Próxima página
+      characters.addAll(newCharacters);
+      // Novos personagens requeridos
+      page.value++;
+      // Próxima página
       print(
           'Characters loaded: ${characters.length}'); // Adicione este log para verificar o número de personagens carregados
     } catch (e) {
