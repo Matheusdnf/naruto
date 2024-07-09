@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:teste/controler/caracter_controler.dart';
 import 'package:teste/models/model_caracter.dart'; // Verifique o caminho do seu modelo
 import 'package:teste/repository/repository.dart';
-
+import 'package:teste/scream/detalhesdocaracter.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Text(character.name),
                   subtitle: Text('ID: ${character.id}'),
                   onTap: () {
-                    // Aqui você pode adicionar a navegação para detalhes do personagem
+                    Get.to(()=> Detalhedocaracter(), arguments:character);
                   },
                 );
               } else {
