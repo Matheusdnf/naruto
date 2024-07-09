@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 class ModelButtonInformation {
   String nome;
   Icon icon;
+  VoidCallback? onPressed;
 
-  ModelButtonInformation({required this.nome, required this.icon});
+  ModelButtonInformation({required this.nome, required this.icon, required this.onPressed});
 }
 
 class ButonInformation extends StatelessWidget {
@@ -22,9 +23,7 @@ class ButonInformation extends StatelessWidget {
             (guia) => IconButton(
               icon: guia.icon,
               tooltip: guia.nome,
-              onPressed: () {
-                //alguma coisa
-              },
+              onPressed: guia.onPressed,
             ),
           )
           .toList(),
