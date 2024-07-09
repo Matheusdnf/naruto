@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:teste/models_widget/models_butons.dart';
+import 'package:teste/scream/about.dart';
 import 'package:teste/scream/logo_app.dart';
 
 class FirstScream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Alguma coisa',
       home: Scaffold(
         backgroundColor: Colors.orange,
@@ -20,10 +23,9 @@ class FirstScream extends StatelessWidget {
                     ModelButtonInformation(
                       nome: 'Desenvolvedores',
                       icon: const Icon(Icons.people_alt_outlined),
-                    ),
-                    ModelButtonInformation(
-                      nome: 'Sobre',
-                      icon: const Icon(Icons.integration_instructions),
+                      onPressed: (){
+                        Get.to(const HomePage());
+                      }
                     ),
                   ],
                 ),
