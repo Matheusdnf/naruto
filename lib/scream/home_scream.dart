@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:teste/scream/tela_vila.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:teste/controler/village_controller.dart';
 import 'dart:ui'; // Importe o controlador
@@ -98,7 +99,17 @@ class MyHomePage extends StatelessWidget {
                     print('Página mudada para $page');
                   },
                   onSelectedItem: (index) {
-                    print('Item selecionado no índice $index');
+                    // Defina os IDs das vilas em uma lista
+                    final List<int> villageIds = [16, 28, 14, 11, 17];
+
+                    // Verifique se o índice é válido
+                    if (index >= 0 && index < villageIds.length) {
+                      // Navegue para a tela de vilas passando o ID correspondente
+                      Get.to(() => VilaScreen(), arguments: villageIds[index]);
+                    } else {
+                      // Opcional: lidar com casos em que o índice não é válido
+                      print('Índice inválido: $index');
+                    }
                   },
                 );
               }
