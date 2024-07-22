@@ -19,7 +19,7 @@ class Vilareposity implements IVilareposity {
 
       if (response.statusCode == 200) {
         final dynamic jsonBody = jsonDecode(response.body);
-        final List<dynamic> vilaList = jsonBody['villages'] ?? [];
+        final List<dynamic> vilaList = jsonBody['characters'] ?? [];
         List<Vila> vila = vilaList.map((json) => Vila.fromJson(json)).toList();
         return vila;
       } else if (response.statusCode == 404) {

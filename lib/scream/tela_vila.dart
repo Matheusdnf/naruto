@@ -39,16 +39,13 @@ class _VilaScreenState extends State<VilaScreen> {
             itemCount: controller.vila.length,
             itemBuilder: (context, index) {
               final Vila vila = controller.vila[index];
-              return ExpansionTile(
+              return ListTile(
                 title: Text(vila.name),
-                children: vila.personagem.map((caracter) {
-                  return ListTile(
-                    title: Text(caracter.name),
-                    onTap: () {
-                      Get.to(() => Detalhedocaracter(), arguments: caracter);
-                    },
-                  );
-                }).toList(),
+                subtitle: Text('ID: ${vila.id}'),
+                onTap: () {
+                  // Aqui você pode exibir uma lista de personagens em vez da própria vila
+                  Get.to(() => Detalhedocaracter(), arguments: vila.personagem);
+                },
               );
             },
           );
