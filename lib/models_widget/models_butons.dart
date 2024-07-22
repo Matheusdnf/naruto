@@ -38,7 +38,7 @@ class ButtonInicial extends StatelessWidget {
       width: 200,
       child: ElevatedButton(
         onPressed: () {
-          Get.to(const HomeScreen());
+          Get.to(MyHomePage());
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(16.0),

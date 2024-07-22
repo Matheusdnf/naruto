@@ -39,6 +39,7 @@ dependencies:
   http: ^1.2.1
   connectivity: ^3.0.6
   fluttertoast: ^8.0.8
+  vertical_card_pager: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -68,7 +69,13 @@ flutter:
     - web/assets/assets/git.png
     - web/assets/assets/email2.png
     - web/assets/assets/tropa.jpg
+    - web/assets/assets/pain.jpg
     - web/assets/fonts/njnaruto.ttf
+    - web/assets/villages/konohagakure.jpg
+    - web/assets/villages/sunagakure.jpg
+    - web/assets/villages/iwagakure.jpg
+    - web/assets/villages/kumogakure.jpg
+    - web/assets/villages/kirigakure.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
