@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/controler/village_controller.dart';
+import 'package:teste/models/model_caracter.dart';
 import 'package:teste/models/model_vila.dart';
 import 'package:teste/scream/detalhesdocaracter.dart';
 
@@ -19,7 +20,7 @@ class _VilaScreenState extends State<VilaScreen> {
     super.initState();
     final int villageId = Get.arguments; // Recebe o ID da vila passado como argumento
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      controller.fetchVila(villageId); // Busca os personagens da vila selecionada
+      controller.fetchCharacter(villageId); // Busca os personagens da vila selecionada
     });
   }
 
@@ -38,13 +39,13 @@ class _VilaScreenState extends State<VilaScreen> {
           return ListView.builder(
             itemCount: controller.vila.length,
             itemBuilder: (context, index) {
-              final Vila vila = controller.vila[index];
+              final Caracter vila = controller.vila[index];
               return ListTile(
                 title: Text(vila.name),
                 subtitle: Text('ID: ${vila.id}'),
                 onTap: () {
                   // Aqui você pode exibir uma lista de personagens em vez da própria vila
-                  Get.to(() => Detalhedocaracter(), arguments: vila.personagem);
+                  Get.to(() => Detalhedocaracter(), arguments: vila);
                 },
               );
             },

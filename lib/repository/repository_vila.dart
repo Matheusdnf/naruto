@@ -1,14 +1,15 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:teste/models/model_caracter.dart';
 import 'package:teste/models/model_vila.dart';
 
 abstract class IVilareposity {
-  Future<List<Vila>> getVila(int escolha);
+  Future<List<Caracter>> getVila(int escolha);
 }
 
 class Vilareposity implements IVilareposity {
   @override
-  Future<List<Vila>> getVila(int escolha) async {
+  Future<List<Caracter>> getVila(int escolha) async {
     final url = 'https://narutodb.xyz/api/village/$escolha';
 
     try {
@@ -20,8 +21,8 @@ class Vilareposity implements IVilareposity {
       if (response.statusCode == 200) {
         final dynamic jsonBody = jsonDecode(response.body);
         final List<dynamic> vilaList = jsonBody['characters'] ?? [];
-        List<Vila> vila = vilaList.map((json) => Vila.fromJson(json)).toList();
-        return vila;
+        List<Caracter> personagens = vilaList.map((json) => Caracter.fromJson(json)).toList();
+        return personagens;
       } else if (response.statusCode == 404) {
         throw Exception("Não encontrado");
       } else {
