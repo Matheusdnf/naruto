@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/controler/dependency.dart';
+import 'package:teste/controller/dependency.dart';
 import 'package:teste/scream/first_scream.dart';
 
 Future<void> main() async {

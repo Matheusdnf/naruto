@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:teste/models/model_caracter.dart';
+import 'package:teste/models/model_character.dart';
 
 class Detalhedocaracter extends StatelessWidget{ 
   @override
   Widget build(BuildContext context){
-    final Caracter personagem = Get.arguments as Caracter;
+    final Character personagem = Get.arguments as Character;
     return Scaffold(
       appBar:AppBar(
         title: Text(personagem.name),
@@ -41,7 +41,7 @@ class Detalhedocaracter extends StatelessWidget{
             SizedBox(height: 10),
             Text('Estreia:', style: TextStyle(fontWeight: FontWeight.bold)),
             Text('Mangá: ${personagem.debut.manga ?? 'Não especificado'}'),
-            Text('Filme: ${personagem.debut.movie ?? 'Não especificado'}'),
+
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:teste/controler/network_controller.dart';
+import 'package:teste/controller/network_controller.dart';
 
 class DependencyInjection {
   static void init() {
