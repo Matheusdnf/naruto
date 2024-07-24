@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/scream/tela_vila.dart';
+import 'package:teste/controller/controller_navigationbar.dart';
+import 'package:teste/scream/detail_screen/screen_village.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
-import 'package:teste/controler/village_controller.dart';
-import 'dart:ui'; // Importe o controlador
+import 'package:teste/controller/village_controller.dart';
+import 'dart:ui'; 
+
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final VillageController controller = Get.put(VillageController());
+    final BottomNavController bottomNavController = Get.put(BottomNavController());
 
     return Scaffold(
       appBar: AppBar(
@@ -117,27 +120,31 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Villages',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Clans',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Grupos',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Colors.red,
-        onTap: (index) {
-          // Handle navigation logic based on the selected index if needed
-        },
-      ),
+      bottomNavigationBar: Obx(() {
+        //atualização do estado do ícone 
+        return BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Villages',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Clans',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Grupos',
+            ),
+          ],
+          //item selecionado atualmente na nav bar (atual)
+          currentIndex: bottomNavController.currentIndex.value,
+          //item selecionado fica na cor vermelha 
+          selectedItemColor: Colors.red,
+          //ao clicar irá mandar para a mudança de página
+          onTap: bottomNavController.changePage,
+        );
+      }),
     );
   }
 }
