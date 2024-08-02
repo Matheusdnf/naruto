@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/models_widget/models_butons.dart';
+import 'package:teste/models_widget/models_widgets.dart';
 import 'package:teste/scream/screen_details_app/about.dart';
 import 'package:teste/scream/screen_details_app/logo_app.dart';
 
@@ -9,7 +9,7 @@ class FirstScream extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Alguma coisa',
+      title: 'Naruto Universe',
       home: Scaffold(
         backgroundColor: Colors.orange,
         body: SafeArea(
@@ -18,13 +18,13 @@ class FirstScream extends StatelessWidget {
               Positioned(
                 top: 0,
                 right: 0,
-                child: ButonInformation(
+                child: MyButton(
                   modelo: [
-                    ModelButtonInformation(
+                    ModelButton(
                       nome: 'Desenvolvedores',
                       icon: const Icon(Icons.people_alt_outlined),
                       onPressed: (){
-                        Get.to(const HomePage());
+                        Get.to(AboutPage());
                       }
                     ),
                   ],

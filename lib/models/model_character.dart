@@ -44,8 +44,8 @@ class Debut {
 
   factory Debut.fromMap(Map<String, dynamic> json) {
     return Debut(
-      manga: json["manga"] ?? "",
-      anime: json["anime"] ?? "",
+      manga: json["manga"],
+      anime: json["anime"],
     );
   }
 

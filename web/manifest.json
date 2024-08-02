@@ -1,11 +1,11 @@
 {
-    "name": "teste",
-    "short_name": "teste",
+    "name": "Naruto Universe",
+    "short_name": "Naruto",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Projeto sobre o anime de naruto.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

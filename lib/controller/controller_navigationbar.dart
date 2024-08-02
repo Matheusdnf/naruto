@@ -1,24 +1,19 @@
 import 'package:get/get.dart';
-class BottomNavController extends GetxController {
-  //observar a mudança do index (toque no botão)
+import 'package:flutter/material.dart';
+
+class NavController extends GetxController {
   var currentIndex = 0.obs;
-  //realizar a mudança de págia 
+  final PageController pageController = PageController();
+
   void changePage(int index) {
-    //pega a mudança do index e atrela a uma varíavel
     currentIndex.value = index;
-    switch (index) {
-      case 0:
-        print("Primeiro Botão");
-        break;
-      case 1:
-        print("Segundo botão");
-        break;
-      case 2:
-        // Lógica de navegação para a página de Grupos
-        print("Terceiro botão ");
-        break;
-      default:
-        Get.toNamed('/'); // Página padrão
-    }
+    //mudar instataneamente para a página 
+    pageController.jumpToPage(index);
+  }
+  //descartar o controlar quando não for mais necessário 
+  @override
+  void onClose() {
+    pageController.dispose();
+    super.onClose();
   }
 }

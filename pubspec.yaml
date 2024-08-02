@@ -40,6 +40,9 @@ dependencies:
   connectivity: ^3.0.6
   fluttertoast: ^8.0.8
   vertical_card_pager: ^1.0.0
+  smooth_page_indicator: null
+  url_launcher: ^6.1.10
+  icons_plus: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,18 +67,16 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - web/assets/assets/naruto.jpg
-    - web/assets/assets/desc.png
-    - web/assets/assets/git.png
-    - web/assets/assets/email2.png
-    - web/assets/assets/tropa.jpg
-    - web/assets/assets/pain.jpg
-    - web/assets/fonts/njnaruto.ttf
-    - web/assets/villages/konohagakure.jpg
-    - web/assets/villages/sunagakure.jpg
-    - web/assets/villages/iwagakure.jpg
-    - web/assets/villages/kumogakure.jpg
-    - web/assets/villages/kirigakure.jpg
+    - lib/assets/assets/naruto.jpg
+    - lib/assets/assets/desc.png
+    - lib/assets/assets/tropa.jpg
+    - lib/assets/assets/pain.jpg
+    - lib/assets/fonts/njnaruto.ttf
+    - lib/assets/villages/konohagakure.jpg
+    - lib/assets/villages/sunagakure.jpg
+    - lib/assets/villages/iwagakure.jpg
+    - lib/assets/villages/kumogakure.jpg
+    - lib/assets/villages/kirigakure.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -102,7 +103,7 @@ flutter:
   fonts:
     - family: NJNaruto
       fonts:
-        - asset: web/assets/fonts/njnaruto.ttf
+        - asset: lib/assets/fonts/njnaruto.ttf
           weight: 400
   #
   # For details regarding fonts from package dependencies,

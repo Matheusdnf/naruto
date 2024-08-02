@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/controller/controller_navigationbar.dart';
+// import 'package:teste/controller/controller_navigationbar.dart';
 import 'package:teste/scream/detail_screen/screen_village.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:teste/controller/village_controller.dart';
@@ -8,10 +8,11 @@ import 'dart:ui';
 
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage ({super.key});
   @override
   Widget build(BuildContext context) {
     final VillageController controller = Get.put(VillageController());
-    final BottomNavController bottomNavController = Get.put(BottomNavController());
+    // final BottomNavController bottomNavController = Get.put(BottomNavController());
 
     return Scaffold(
       appBar: AppBar(
@@ -98,9 +99,9 @@ class MyHomePage extends StatelessWidget {
                 return VerticalCardPager(
                   titles: controller.villages.map((name) => '').toList(),
                   images: cards,
-                  onPageChanged: (page) {
-                    print('Página mudada para $page');
-                  },
+                  // onPageChanged: (page) {
+                  //   print('Página mudada para $page');
+                  // },
                   onSelectedItem: (index) {
                     // Defina os IDs das vilas em uma lista
                     final List<int> villageIds = [16, 28, 14, 11, 17];
@@ -108,7 +109,10 @@ class MyHomePage extends StatelessWidget {
                     // Verifique se o índice é válido
                     if (index >= 0 && index < villageIds.length) {
                       // Navegue para a tela de vilas passando o ID correspondente
-                      Get.to(() => VilaScreen(), arguments: villageIds[index]);
+                      Get.to(() => VilaScreen(), arguments: {
+                        'id': villageIds[index],
+                        'name': controller.villages[index]
+                      });
                     } else {
                       // Opcional: lidar com casos em que o índice não é válido
                       print('Índice inválido: $index');
@@ -120,31 +124,31 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: Obx(() {
-        //atualização do estado do ícone 
-        return BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Villages',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Clans',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Grupos',
-            ),
-          ],
-          //item selecionado atualmente na nav bar (atual)
-          currentIndex: bottomNavController.currentIndex.value,
-          //item selecionado fica na cor vermelha 
-          selectedItemColor: Colors.red,
-          //ao clicar irá mandar para a mudança de página
-          onTap: bottomNavController.changePage,
-        );
-      }),
+      // bottomNavigationBar: Obx(() {
+      //   //atualização do estado do ícone 
+      //   return BottomNavigationBar(
+      //     items: const <BottomNavigationBarItem>[
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.home),
+      //         label: 'Villages',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.search),
+      //         label: 'Clans',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.person),
+      //         label: 'Grupos',
+      //       ),
+      //     ],
+      //     //item selecionado atualmente na nav bar (atual)
+      //     currentIndex: bottomNavController.currentIndex.value,
+      //     //item selecionado fica na cor vermelha 
+      //     selectedItemColor: Colors.red,
+      //     //ao clicar irá mandar para a mudança de página
+      //     onTap: bottomNavController.changePage,
+      //   );
+      // }),
     );
   }
 }

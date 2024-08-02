@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Importe o pacote google_fonts
+import 'package:teste/models_widget/models_widgets.dart';
 import 'dart:ui'; // Import necessário para usar o BackdropFilter
+import 'package:url_launcher/url_launcher.dart';
+import 'package:icons_plus/icons_plus.dart';
 
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -87,9 +89,8 @@ class Content extends StatelessWidget {
                           ),
                           const SizedBox(height: 16),
                           Text(
-                            'Este é um pequeno texto que descreve algo interessante. '
-                            'Aqui você pode adicionar qualquer informação relevante que '
-                            'deseja compartilhar na sua página inicial.',
+                            'Este projeto foi desenvolvido para a matéria de POO para a faculdade (UFRN).\n'
+                            'Tem como temática a série japonesa naruto, contendo algumas informanções e personagens do anime.',
                             style: GoogleFonts.roboto(
                               textStyle: const TextStyle(
                                 fontSize: 14,
@@ -109,8 +110,7 @@ class Content extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                    height: 16), // Espaçamento entre os conjuntos de conteúdo
+                const SizedBox(height: 16), // Espaçamento entre os conjuntos de conteúdo
 
                 // Segundo conjunto de título acima da imagem e texto ao lado da imagem
                 const DeveloperInfo(),
@@ -126,6 +126,42 @@ class Content extends StatelessWidget {
 class DeveloperInfo extends StatelessWidget {
   const DeveloperInfo({super.key});
 
+  void abrir_github(String git) async {
+    var github = git;
+    if (await canLaunchUrl(Uri.parse(github))) {
+      await launchUrl(Uri.parse(github));
+    } else {
+      throw 'Could not launch $github';
+    }
+  }
+
+  void abrirInstagram(String insta) async {
+    var instagram = insta;
+    if (await canLaunchUrl(Uri.parse(instagram))) {
+      await launchUrl(Uri.parse(instagram));
+    } else {
+      throw 'Could not launch $instagram';
+    }
+  }
+
+  void _launchEmail(String email) async {
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: email,
+      query: Uri.encodeFull('subject=Gostei do Projeto&body=Vou lhe dar dinheiro por ele'),
+    );
+
+    try {
+      if (await canLaunchUrl(emailLaunchUri)) {
+        await launchUrl(emailLaunchUri);
+      } else {
+        throw 'Could not launch $emailLaunchUri';
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -140,62 +176,46 @@ class DeveloperInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(
-              'web/assets/assets/desc.png',
-              width: 100,
-              height: 100,
+        InfoDev(
+          name: 'Matheus Diniz Fernandes',
+          image: 'https://i.ytimg.com/vi/kWC-mNkGKtk/maxresdefault.jpg',
+          socialmedia: [
+            ModelButton(
+              nome: 'Email',
+              icon: Icon(Icons.email_outlined),
+              onPressed: () => _launchEmail('matheusdiniz870@gmail.com'),
             ),
-            const SizedBox(width: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Matheus Diniz Fernandes',
-                  style: GoogleFonts.roboto(
-                    textStyle: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
-                  ),
-                  textAlign: TextAlign.justify,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  'Redes Sociais:',
-                  style: GoogleFonts.roboto(
-                    textStyle: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
-                  ),
-                  textAlign: TextAlign.justify,
-                ),
-                const SizedBox(height: 2),
-                Row(
-                  children: [
-                    Image.asset(
-                      'web/assets/assets/email2.png',
-                      width: 48,
-                      height: 48,
-                    ),
-                    const SizedBox(width: 8),
-                    Image.asset(
-                      'web/assets/assets/git.png',
-                      width: 48,
-                      height: 48,
-                    ),
-                    const SizedBox(width: 2),
-                    Image.asset(
-                      'web/assets/assets/git.png',
-                      width: 48,
-                      height: 48,
-                    ),
-                  ],
-                ),
-              ],
+            ModelButton(
+              nome: 'Instagram',
+              icon: Icon(Bootstrap.instagram),
+              onPressed: () => abrirInstagram('https://www.instagram.com/Matheusdnz_'),
+            ),
+            ModelButton(
+              nome: 'Github',
+              icon: Icon(Bootstrap.github),
+              onPressed: () => abrir_github('https://github.com/Matheusdnf'),
+            ),
+          ],
+        ),
+        SizedBox(height: 10),
+        InfoDev(
+          name: 'Felipe Algusto',
+          image: 'https://i.ytimg.com/vi/kWC-mNkGKtk/maxresdefault.jpg',
+          socialmedia: [
+            ModelButton(
+              nome: 'Email',
+              icon: Icon(Icons.email_outlined),
+              onPressed: () => _launchEmail('araujofelipe54@gmail.com'),
+            ),
+            ModelButton(
+              nome: 'Instagram',
+              icon: Icon(Bootstrap.instagram),
+              onPressed: () => abrirInstagram('https://www.instagram.com/august_felpss/'),
+            ),
+            ModelButton(
+              nome: 'Github',
+              icon: Icon(Bootstrap.github),
+              onPressed: () => abrir_github('https://github.com/fel-ps'),
             ),
           ],
         ),
