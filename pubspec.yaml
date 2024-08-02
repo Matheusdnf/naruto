@@ -40,6 +40,7 @@ dependencies:
   connectivity: ^3.0.6
   fluttertoast: ^8.0.8
   vertical_card_pager: ^1.0.0
+  smooth_page_indicator: null
 
 dev_dependencies:
   flutter_test:
