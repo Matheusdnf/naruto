@@ -98,9 +98,9 @@ class MyHomePage extends StatelessWidget {
                 return VerticalCardPager(
                   titles: controller.villages.map((name) => '').toList(),
                   images: cards,
-                  onPageChanged: (page) {
-                    print('Página mudada para $page');
-                  },
+                  // onPageChanged: (page) {
+                  //   print('Página mudada para $page');
+                  // },
                   onSelectedItem: (index) {
                     // Defina os IDs das vilas em uma lista
                     final List<int> villageIds = [16, 28, 14, 11, 17];
@@ -108,7 +108,10 @@ class MyHomePage extends StatelessWidget {
                     // Verifique se o índice é válido
                     if (index >= 0 && index < villageIds.length) {
                       // Navegue para a tela de vilas passando o ID correspondente
-                      Get.to(() => VilaScreen(), arguments: villageIds[index]);
+                      Get.to(() => VilaScreen(), arguments: {
+                        'id': villageIds[index],
+                        'name': controller.villages[index]
+                      });
                     } else {
                       // Opcional: lidar com casos em que o índice não é válido
                       print('Índice inválido: $index');

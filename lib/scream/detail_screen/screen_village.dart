@@ -12,12 +12,15 @@ class VilaScreen extends StatefulWidget {
 }
 
 class _VilaScreenState extends State<VilaScreen> {
+  late String name;
   final VillageController controller = Get.find(); // Usa o mesmo controlador já instanciado
 
   @override
   void initState() {
     super.initState();
-    final int villageId = Get.arguments; // Recebe o ID da vila passado como argumento
+    final arguments = Get.arguments as Map<String, dynamic>;
+    final int villageId = arguments['id']; // Recebe o ID da vila passado como argumento
+    name = arguments['name'];
     WidgetsBinding.instance.addPostFrameCallback((_) {
       controller.fetchCharacter(villageId); // Busca os personagens da vila selecionada
     });
@@ -27,7 +30,7 @@ class _VilaScreenState extends State<VilaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Personagens de Naruto'),
+        title: Text('Ninjas de $name'),
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
@@ -39,13 +42,20 @@ class _VilaScreenState extends State<VilaScreen> {
             itemCount: controller.vila.length,
             itemBuilder: (context, index) {
               final Character vila = controller.vila[index];
-              return ListTile(
-                title: Text(vila.name),
-                subtitle: Text('ID: ${vila.id}'),
-                onTap: () {
-                  // Aqui você pode exibir uma lista de personagens em vez da própria vila
-                  Get.to(() => Detalhedocaracter(), arguments: vila);
-                },
+              return Card(
+                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                elevation: 4, // elevação para dar um efeito de sombra
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10), // bordas arredondadas
+                ),
+                child: ListTile(
+                  trailing: const Icon(Icons.arrow_forward_ios),
+                  title: Text(vila.name),
+                  subtitle: Text('ID: ${vila.id}'),
+                  onTap: () {
+                    Get.to(() => Detalhedocaracter(), arguments: vila);
+                  },
+                ),
               );
             },
           );
