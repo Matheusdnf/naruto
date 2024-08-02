@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 Image.asset(
-                  'web/assets/assets/pain.jpg',
+                  'lib/assets/assets/pain.jpg',
                   fit: BoxFit.cover,
                 ),
                 BackdropFilter(
@@ -48,11 +48,11 @@ class MyHomePage extends StatelessWidget {
                 return const Center(child: Text('Nenhuma vila encontrada.'));
               } else {
                 final List<String> imageAssets = [
-                  'web/assets/villages/konohagakure.jpg',
-                  'web/assets/villages/sunagakure.jpg',
-                  'web/assets/villages/kirigakure.jpg',
-                  'web/assets/villages/iwagakure.jpg',
-                  'web/assets/villages/kumogakure.jpg',
+                  'lib/assets/villages/konohagakure.jpg',
+                  'lib/assets/villages/sunagakure.jpg',
+                  'lib/assets/villages/kirigakure.jpg',
+                  'lib/assets/villages/iwagakure.jpg',
+                  'lib/assets/villages/kumogakure.jpg',
                 ];
 
                 final List<Widget> cards = imageAssets.asMap().entries.map((entry) {

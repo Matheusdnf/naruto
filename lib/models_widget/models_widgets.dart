@@ -50,7 +50,7 @@ class InfoDev extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              'web/assets/assets/desc.png',
+              'lib/assets/assets/desc.png',
               width: 100,
               height: 100,
             ),

@@ -34,7 +34,7 @@ class BlurredBackground extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Image.asset(
-          'web/assets/assets/tropa.jpg',
+          'lib/assets/assets/tropa.jpg',
           fit: BoxFit.cover,
         ),
         BackdropFilter(
@@ -89,8 +89,7 @@ class Content extends StatelessWidget {
                           ),
                           const SizedBox(height: 16),
                           Text(
-                            'Este projeto foi desenvolvido para a matéria de POO para a faculdade (UFRN).\n'
-                            'Tem como temática a série japonesa naruto, contendo algumas informanções e personagens do anime.',
+                            'Este projeto foi desenvolvido para a matéria de POO para a faculdade (UFRN). Tem como temática a série japonesa naruto, contendo algumas informanções e personagens do anime.',
                             style: GoogleFonts.roboto(
                               textStyle: const TextStyle(
                                 fontSize: 14,
@@ -104,7 +103,7 @@ class Content extends StatelessWidget {
                     ),
                     const SizedBox(width: 16),
                     Image.asset(
-                      'web/assets/assets/naruto.jpg',
+                      'lib/assets/assets/naruto.jpg',
                       width: 150,
                       height: 150,
                     ),
@@ -199,7 +198,7 @@ class DeveloperInfo extends StatelessWidget {
         ),
         SizedBox(height: 10),
         InfoDev(
-          name: 'Felipe Algusto',
+          name: 'Felipe Augusto Araújo da Cunha',
           image: 'https://i.ytimg.com/vi/kWC-mNkGKtk/maxresdefault.jpg',
           socialmedia: [
             ModelButton(
