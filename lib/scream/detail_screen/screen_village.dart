@@ -49,6 +49,17 @@ class _VilaScreenState extends State<VilaScreen> {
                   borderRadius: BorderRadius.circular(10), // bordas arredondadas
                 ),
                 child: ListTile(
+                  leading: Container(
+                    width: 50, // Define a largura do contêiner
+                    height: 50, // Define a altura do contêiner
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0), // Define o raio da borda arredondada
+                      child: Image.network(
+                        vila.images.isNotEmpty ? vila.images[0] : 'Nenhuma Imagem carregada',
+                        fit: BoxFit.cover, // Ajusta a imagem para cobrir o espaço disponível
+                      ),
+                    ),
+                  ),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   title: Text(vila.name),
                   subtitle: Text('ID: ${vila.id}'),
