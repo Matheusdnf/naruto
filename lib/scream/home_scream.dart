@@ -8,6 +8,7 @@ import 'dart:ui';
 
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage ({super.key});
   @override
   Widget build(BuildContext context) {
     final VillageController controller = Get.put(VillageController());

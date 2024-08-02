@@ -8,18 +8,18 @@ class LogoApp extends StatelessWidget {
       text: const TextSpan(
         children: [
           TextSpan(
-            text: 'DRAGON',
+            text: 'Naruto ',
             style: TextStyle(
               fontSize: 100.0,
-              fontFamily: 'Pacifico',
+              fontFamily: 'NJNaruto',
               color: Colors.black,
             ),
           ),
           TextSpan(
-            text: 'DEX',
+            text: 'Universe',
             style: TextStyle(
               fontSize: 100.0,
-              fontFamily: 'Pacifico',
+              fontFamily: 'NJNaruto',
               color: Colors.red,
             ),
           ),
