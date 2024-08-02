@@ -13,8 +13,7 @@ class Detalhedocaracter extends StatelessWidget{
       ),
       body: Padding(
         padding:const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             Center(
               child: Row(
@@ -29,24 +28,23 @@ class Detalhedocaracter extends StatelessWidget{
                     ).toList() :[Container()],
               ),
             ),
-            SizedBox(height: 10),
-             Text('Jutsus:', style: TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            const Text('Jutsus:', style: TextStyle(fontFamily: 'NJNaruto',)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: personagem.jutsu.isNotEmpty? 
               personagem.jutsu.map((jutsu) => Text('- $jutsu')).toList()
-               :[Text("Tem nada aqui não colega")],
+               :[const Text("Tem nada aqui não colega")],
 
             ),
-            SizedBox(height: 10),
-            Text('Estreia:', style: TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            const Text('Estreia:', style: TextStyle(fontFamily: 'NJNaruto',)),
             Text('Mangá: ${personagem.debut.manga ?? 'Não especificado'}'),
-
+            Text('Anime: ${personagem.debut.anime ?? 'Não especificado'}'),
           ],
         ),
       ),
     );
   }
-}
-                    
+}               
                   
