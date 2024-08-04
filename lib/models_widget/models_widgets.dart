@@ -123,3 +123,50 @@ class ButtonInicial extends StatelessWidget {
     );
   }
 }
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final String subtitle;
+  final double fontSize;
+  final Color subtitleColor;
+
+  CustomAppBar({
+    required this.title,
+    required this.subtitle,
+    this.fontSize = 24,
+    this.subtitleColor = Colors.red,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: title,
+              style: TextStyle(
+                fontFamily: 'NJNaruto',
+                fontSize: fontSize,
+              ),
+            ),
+            TextSpan(
+              text: subtitle,
+              style: TextStyle(
+                fontFamily: 'NJNaruto',
+                fontSize: fontSize,
+                color: subtitleColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+}

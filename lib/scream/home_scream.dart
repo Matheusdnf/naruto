@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:teste/scream/detail_screen/screen_village.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:teste/controller/village_controller.dart';
+import 'package:teste/models_widget/models_widgets.dart';
 import 'dart:ui'; 
 
 
@@ -15,10 +16,9 @@ class MyHomePage extends StatelessWidget {
     // final BottomNavController bottomNavController = Get.put(BottomNavController());
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vilas de Naruto'),
-        backgroundColor: Colors.transparent, // Torna a AppBar transparente
-        elevation: 0, // Remove a sombra da AppBar
+      appBar: CustomAppBar(
+          title: 'Naruto',
+          subtitle: ' Universe',
       ),
       body: Stack(
         children: [

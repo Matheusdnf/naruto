@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:teste/controller/controller_navigationbar.dart';
 import 'home_scream.dart';
+import 'groups_page.dart';
 
 class Teste extends StatelessWidget {
   Teste({super.key});
@@ -12,6 +13,7 @@ class Teste extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       //pageview gerenciar as páginas
       body: PageView(
         //controlador dos index apertados na nav bar
@@ -29,6 +31,7 @@ class Teste extends StatelessWidget {
 
 final List<Widget> _pages = [
   const MyHomePage(),
+  GruposPage(),
 ];
 
 
@@ -45,8 +48,8 @@ class NavBar extends StatelessWidget {
           _navController.changePage(index);
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Teste"),
-          BottomNavigationBarItem(icon: Icon(Icons.arrow_back_ios_new), label: "Teste 2"),
+          BottomNavigationBarItem(icon: Icon(Icons.houseboat), label: "Vilas"),
+          BottomNavigationBarItem(icon: Icon(Icons.groups), label: "Grupos"),
         ],
       );
     });
