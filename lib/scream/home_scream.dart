@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:teste/controller/controller_navigationbar.dart';
 import 'package:teste/scream/detail_screen/screen_village.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
 import 'package:teste/controller/village_controller.dart';
@@ -124,31 +123,6 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
-      // bottomNavigationBar: Obx(() {
-      //   //atualização do estado do ícone 
-      //   return BottomNavigationBar(
-      //     items: const <BottomNavigationBarItem>[
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.home),
-      //         label: 'Villages',
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.search),
-      //         label: 'Clans',
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.person),
-      //         label: 'Grupos',
-      //       ),
-      //     ],
-      //     //item selecionado atualmente na nav bar (atual)
-      //     currentIndex: bottomNavController.currentIndex.value,
-      //     //item selecionado fica na cor vermelha 
-      //     selectedItemColor: Colors.red,
-      //     //ao clicar irá mandar para a mudança de página
-      //     onTap: bottomNavController.changePage,
-      //   );
-      // }),
     );
   }
 }
