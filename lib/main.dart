@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/controller/dependency.dart';
-import 'package:teste/scream/first_scream.dart';
+import 'package:teste/screens/screen_rotas/tela_inicio.dart';
 
 Future<void> main() async {
   runApp(const MyApp());

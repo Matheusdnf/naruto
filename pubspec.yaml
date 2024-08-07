@@ -39,7 +39,6 @@ dependencies:
   http: ^1.2.1
   connectivity: ^3.0.6
   fluttertoast: ^8.0.8
-  vertical_card_pager: ^1.0.0
   smooth_page_indicator: null
   url_launcher: ^6.1.10
   icons_plus: ^5.0.0
@@ -71,6 +70,7 @@ flutter:
     - lib/assets/assets/desc.png
     - lib/assets/assets/tropa.jpg
     - lib/assets/assets/pain.jpg
+    - lib/assets/assets/akatsoca.jpg
     - lib/assets/fonts/njnaruto.ttf
     - lib/assets/villages/konohagakure.jpg
     - lib/assets/villages/sunagakure.jpg

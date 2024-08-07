@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:teste/models/model_character.dart';
+import 'package:teste/models/models_api/model_character.dart';
 
 abstract class IVilareposity {
   Future<List<Character>> getVila(int escolha);

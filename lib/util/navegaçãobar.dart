@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:teste/controller/controller_navigationbar.dart';
-import 'home_scream.dart';
-import 'groups_page.dart';
+import '../screens/screen_rotas/tela_de_vilas.dart';
+import '../screens/screen_rotas/tela_de_grupos.dart';
 
 class Teste extends StatelessWidget {
   Teste({super.key});
@@ -30,8 +28,8 @@ class Teste extends StatelessWidget {
 }
 
 final List<Widget> _pages = [
-  const MyHomePage(),
-  GruposPage(),
+  const VillagesPage(),
+  const GruposPage(),
 ];
 
 
@@ -55,3 +53,4 @@ class NavBar extends StatelessWidget {
     });
   }
 }
+

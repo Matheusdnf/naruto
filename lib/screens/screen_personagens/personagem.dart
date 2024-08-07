@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/models/model_character.dart';
+import 'package:teste/models/models_api/model_character.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Detalhedocaracter extends StatelessWidget {

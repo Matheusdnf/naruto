@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Importe o pacote google_fonts
-import 'package:teste/models_widget/models_widgets.dart';
+import 'package:teste/models/models_widget/models_widgets.dart';
 import 'dart:ui'; // Import necessário para usar o BackdropFilter
 import 'package:url_launcher/url_launcher.dart';
 import 'package:icons_plus/icons_plus.dart';
