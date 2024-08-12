@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:teste/controller/groups_controller.dart';
 import 'package:teste/models/models_api/model_character.dart';
 import 'package:teste/models/models_widget/models_widgets.dart';
-import 'package:teste/repository/repository_groups.dart';
 import 'package:teste/screens/screen_personagens/personagem.dart';
 import 'package:teste/util/search_bar.dart';
 import 'package:teste/util/ordenador.dart';
@@ -27,7 +26,7 @@ class _GroupScreenState extends State<GroupScreen> {
     super.initState();
     final arguments = Get.arguments as Map<String, dynamic>?;
     if (arguments != null) {
-      final Group groupIndex = arguments['index']; // Recebe o índice do grupo passado como argumento
+      final int groupIndex = arguments['index']; // Recebe o índice do grupo passado como argumento
       groupName = arguments['name'];
       WidgetsBinding.instance.addPostFrameCallback((_) {
         controller.fetchGrupo(groupIndex); // Busca os personagens do grupo selecionado
