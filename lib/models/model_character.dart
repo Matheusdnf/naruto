@@ -4,6 +4,8 @@ class Character {
   final List<String> images;
   final Debut debut;
   final List<String> jutsu;
+  final List<String> teams;
+  final List<String> group;
 
   Character({
     required this.id,
@@ -11,6 +13,8 @@ class Character {
     required this.images,
     required this.debut,
     required this.jutsu,
+    this.teams = const [],
+    this.group = const [],
   });
 
   factory Character.fromJson(Map<String, dynamic> json) {
@@ -20,6 +24,8 @@ class Character {
       images: List<String>.from(json["images"] ?? []),
       debut: Debut.fromMap(json["debut"] ?? {}),
       jutsu: List<String>.from(json["jutsu"] ?? []),
+      teams: _parseList(json["personal"]?["team"]),
+      group: _parseList(json["personal"]?["affiliation"]),
     );
   }
 
@@ -30,29 +36,43 @@ class Character {
       "images": List<dynamic>.from(images.map((x) => x)),
       "debut": debut.toMap(),
       "jutsu": List<dynamic>.from(jutsu.map((x) => x)),
+      "personal": {
+        "team": List<dynamic>.from(teams.map((x) => x)),
+        "affiliation": List<dynamic>.from(group.map((x) => x)),
+      },
     };
   }
+
+  static List<String> _parseList(dynamic value) {
+    if (value is List) {
+      return List<String>.from(value);
+    } else if (value is String) {
+      return [value];
+    }
+    return [];
+  }
 }
+
 class Debut {
-  final String? manga;
-  final String? anime;
+  final String anime;
+  final String manga;
 
   Debut({
-    this.manga,
-    this.anime,
+    required this.anime,
+    required this.manga,
   });
 
   factory Debut.fromMap(Map<String, dynamic> json) {
     return Debut(
-      manga: json["manga"],
-      anime: json["anime"],
+      anime: json["anime"] ?? "",
+      manga: json["manga"] ?? "",
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      "manga": manga,
       "anime": anime,
+      "manga": manga,
     };
   }
 }
