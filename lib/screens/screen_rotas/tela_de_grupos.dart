@@ -4,47 +4,52 @@ import 'package:teste/models/models_widget/models_widgets.dart';
 import '../../controller/groups_controller.dart';
 import '../screen_personagens/personagens_grupos.dart';
 
+// Tela que exibe opções de grupos para o usuário selecionar
 class GruposPage extends StatelessWidget {
   const GruposPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Instancia o controlador
+    // Instancia o controlador GrupoController com GetX
     final GrupoController grupoController = Get.put(GrupoController());
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Naruto',
-        subtitle: ' Universe',
+        title: 'Naruto', // Título do AppBar
+        subtitle: ' Universe', // Subtítulo do AppBar
       ),
       body: Stack(
         children: [
+          // Fundo da tela com imagem
           const ImagemBackground(imagePath: 'lib/assets/assets/akatsoca.jpg'),
           SafeArea(
             child: Obx(() {
+              // Observa mudanças no controlador usando GetX
               if (grupoController.errorMessage.value.isNotEmpty) {
+                // Se houver uma mensagem de erro, exibe-a
                 return Center(child: Text(grupoController.errorMessage.value));
               } else {
+                // Caso contrário, exibe os botões de seleção de grupo
                 return Center(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center, // Centraliza os itens na coluna
+                    crossAxisAlignment: CrossAxisAlignment.center, // Centraliza os itens na coluna
                     children: [
                       const Text(
-                        'Selecione um grupo',
+                        'Selecione um grupo', // Texto informativo
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontFamily: 'NJNaruto',
-                          fontWeight: FontWeight.bold,
+                          color: Colors.white, // Cor do texto
+                          fontSize: 30, // Tamanho da fonte
+                          fontFamily: 'NJNaruto', // Fonte personalizada
+                          fontWeight: FontWeight.bold, // Peso da fonte
                         ),
                       ),
                       SizedBox(height: 80), // Espaço entre o texto e os botões
-                      _buildGroupButton(context, 'Akatsuki', 0),
+                      _buildGroupButton(context, 'Akatsuki', 0), // Botão para o grupo Akatsuki
                       SizedBox(height: 20), // Espaço entre os botões
-                      _buildGroupButton(context, 'Tailed Beasts', 1),
+                      _buildGroupButton(context, 'Tailed Beasts', 1), // Botão para o grupo Tailed Beasts
                       SizedBox(height: 20), // Espaço entre os botões
-                      _buildGroupButton(context, 'Kara', 2),
+                      _buildGroupButton(context, 'Kara', 2), // Botão para o grupo Kara
                     ],
                   ),
                 );
@@ -56,28 +61,32 @@ class GruposPage extends StatelessWidget {
     );
   }
 
+  // Método para construir um botão de grupo
   Widget _buildGroupButton(BuildContext context, String groupName, int groupIndex) {
     return ElevatedButton(
       onPressed: () {
-        // Atualiza o índice do grupo selecionado
-        Get.to(() => GroupScreen(), arguments: {
+        // Navega para a tela de grupo com o nome e o índice do grupo como argumentos
+        Get.to(() => const GroupScreen(), arguments: {
           'name': groupName,
           'index': groupIndex,
         });
       },
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: Colors.black, padding:const EdgeInsets.symmetric(vertical: 15, horizontal: 30)),
+        foregroundColor: Colors.white, // Cor do texto do botão
+        backgroundColor: Colors.black, // Cor de fundo do botão
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30) // Espaçamento interno do botão
+      ),
       child: Text(
-        groupName,
+        groupName, // Nome do grupo no botão
         style: TextStyle(
-          fontSize: 20,
-          fontFamily: 'NJNaruto',
-          letterSpacing: 1.2,
+          fontSize: 20, // Tamanho da fonte
+          fontFamily: 'NJNaruto', // Fonte personalizada
+          letterSpacing: 1.2, // Espaçamento entre letras
           shadows: [
             Shadow(
-              offset: Offset(1.0, 1.0),
-              blurRadius: 3.0,
-              color: Colors.black.withOpacity(0.8),
+              offset: const Offset(1.0, 1.0), // Deslocamento da sombra
+              blurRadius: 3.0, // Raio de desfoque da sombra
+              color: Colors.black.withOpacity(0.8), // Cor da sombra com opacidade
             ),
           ],
         ),

@@ -209,81 +209,89 @@ class ImagemBackground extends StatelessWidget {
 
 // Mostragem de cards
 class VillagePageView extends StatelessWidget {
-  final PageController pageController;
-  final List<String> imageAssets;
-  final List<String> villageNames;
-  final ValueChanged<int> onPageSelected;
-  final int initialPage;
+  final PageController pageController;  // Controlador do PageView para gerenciar o deslizamento das páginas.
+  final List<String> imageAssets;       // Lista de caminhos para as imagens das vilas.
+  final List<String> villageNames;      // Lista de nomes das vilas.
+  final ValueChanged<int> onPageSelected;  // Função callback chamada ao selecionar uma página.
+  final int initialPage;  // Índice da página inicial a ser exibida.
 
+  // Construtor da classe. Define valores obrigatórios e um valor padrão para a página inicial.
   VillagePageView({
     required this.pageController,
     required this.imageAssets,
     required this.villageNames,
     required this.onPageSelected,
-    this.initialPage = 2,
+    this.initialPage = 2,  // Se não especificado, a página inicial será 2.
   });
 
   @override
   Widget build(BuildContext context) {
 
+    // Define a página inicial logo após a construção do widget.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      pageController.jumpToPage(initialPage);
+      pageController.jumpToPage(initialPage);  // Pula para a página inicial especificada.
     });
-    
+
+    // Constrói o PageView, que permite rolar entre as diferentes páginas.
     return PageView.builder(
-      controller: pageController,
-      itemCount: imageAssets.length,
+      controller: pageController,  // Usa o controlador do PageView para gerenciar o deslizamento.
+      itemCount: imageAssets.length,  // Define o número de itens no PageView.
       itemBuilder: (context, index) {
         return AnimatedBuilder(
-          animation: pageController,
+          animation: pageController,  // Animação baseada na posição atual do PageView.
           builder: (context, child) {
             double value = 1.0;
+            //À medida que o cartão se afasta do centro, (value) diminui, o que reduz a escala (tamanho) do cartão, criando uma animação de deslizamento que destaca o cartão central em relação aos outros. o cálculo abaixo
             if (pageController.position.haveDimensions) {
               value = pageController.page! - index;
               value = (1 - (value.abs() * 0.5)).clamp(0.0, 1.0);
             }
 
+            // Centraliza o cartão na tela.
             return Center(
               child: GestureDetector(
-                onTap: () => onPageSelected(index),
+                onTap: () => onPageSelected(index),  // Chama a função ao selecionar uma página.
                 child: SizedBox(
+                  // Define a altura e a largura do cartão, ajustando com base na animação.
                   height: Curves.easeOut.transform(value) * 450.0,
                   width: Curves.easeOut.transform(value) * 300.0,
-                  child: child,
+                  child: child,  // Usa o cartão construído abaixo.
                 ),
               ),
             );
           },
           child: Card(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0),
+              borderRadius: BorderRadius.circular(25.0),  // Define bordas arredondadas para o cartão.
             ),
             child: Stack(
               children: [
+                // Imagem da vila.
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(25.0),
+                  borderRadius: BorderRadius.circular(25.0),  // Aplica bordas arredondadas à imagem.
                   child: Image.asset(
-                    imageAssets[index],
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: double.infinity,
+                    imageAssets[index],  // Usa o caminho da imagem correspondente ao índice atual.
+                    fit: BoxFit.cover,  // Cobre todo o espaço disponível com a imagem.
+                    width: double.infinity,  // Largura total do cartão.
+                    height: double.infinity,  // Altura total do cartão.
                   ),
                 ),
+                // Nome da vila, exibido no centro do cartão.
                 Center(
                   child: Container(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),  // Espaçamento interno ao redor do texto.
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(25.0),
+                      color: Colors.black.withOpacity(0.5),  // Fundo preto semitransparente.
+                      borderRadius: BorderRadius.circular(25.0),  // Bordas arredondadas.
                     ),
                     child: Text(
-                      villageNames[index],
+                      villageNames[index],  // Nome da vila correspondente ao índice atual.
                       style: const TextStyle(
                         color: Colors.white,
                         fontFamily: 'NJNaruto',
                         fontSize: 22.0,
                       ),
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,  // Centraliza o texto.
                     ),
                   ),
                 ),

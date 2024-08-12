@@ -13,19 +13,22 @@ class SortButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
+      // Chama a função `onSelected` ao selecionar uma opção.
       onSelected: onSelected,
+      // Define as opções do menu.
       itemBuilder: (BuildContext context) {
         return [
-          PopupMenuItem<String>(
+          const PopupMenuItem<String>(
             value: "A->Z",
             child: Text("A->Z"),
           ),
-          PopupMenuItem<String>(
+          const PopupMenuItem<String>(
             value: "Z->A",
             child: Text("Z->A"),
           ),
         ];
       },
+      // Ícone do botão.
       icon: icon,
     );
   }
