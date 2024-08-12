@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/models/models_widget/models_widgets.dart';
+import 'package:teste/repository/repository_groups.dart';
 import '../../controller/groups_controller.dart';
 import '../screen_personagens/personagens_grupos.dart';
 
@@ -40,11 +41,11 @@ class GruposPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 80), // Espaço entre o texto e os botões
-                      _buildGroupButton(context, 'Akatsuki', 0),
+                      _buildGroupButton(context, 'Akatsuki',Group.akatsuki ),
                       SizedBox(height: 20), // Espaço entre os botões
-                      _buildGroupButton(context, 'Tailed Beasts', 1),
+                      _buildGroupButton(context, 'Tailed Beasts', Group.tailedBeast),
                       SizedBox(height: 20), // Espaço entre os botões
-                      _buildGroupButton(context, 'Kara', 2),
+                      _buildGroupButton(context, 'Kara', Group.kara),
                     ],
                   ),
                 );
@@ -56,13 +57,13 @@ class GruposPage extends StatelessWidget {
     );
   }
 
-  Widget _buildGroupButton(BuildContext context, String groupName, int groupIndex) {
+  Widget _buildGroupButton(BuildContext context, String groupName, Group group) {
     return ElevatedButton(
       onPressed: () {
         // Atualiza o índice do grupo selecionado
         Get.to(() => GroupScreen(), arguments: {
           'name': groupName,
-          'index': groupIndex,
+          'index': group,
         });
       },
       style: ElevatedButton.styleFrom(

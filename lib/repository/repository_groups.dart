@@ -3,25 +3,27 @@ import 'package:http/http.dart' as http;
 import 'package:teste/models/models_api/model_character.dart';
 
 abstract class IGroup {
-  Future<List<Character>> getGrupo(int index , {int page = 1, int limit = 45});
+  Future<List<Character>> getGrupo(Group group , {int page = 1, int limit = 45});
 }
 
+enum Group {
+  akatsuki,
+  tailedBeast,
+  kara,
+}
 
 class GrupoRepository implements IGroup {
   //os grupos que serão carregados 
-  final Map<int, String> groupUrls = {
-    0: 'https://narutodb.xyz/api/akatsuki',
-    1: 'https://narutodb.xyz/api/tailed-beast',
-    2: 'https://narutodb.xyz/api/kara',
+  final Map<Enum, String> groupUrls = {
+    Group.akatsuki: 'https://narutodb.xyz/api/akatsuki',
+    Group.tailedBeast:'https://narutodb.xyz/api/tailed-beast',
+    Group.kara:'https://narutodb.xyz/api/kara',
   };
 
   @override
-  Future<List<Character>> getGrupo(int index, {int page = 1, int limit = 45}) async {
-    final url = groupUrls[index];
-    if (url == null) {
-      throw Exception('Índice de grupo inválido');
-    }
-
+  Future<List<Character>> getGrupo(Group group, {int page = 1, int limit = 45}) async {
+    final url = groupUrls[group];
+    
     final requestUrl = '$url?page=$page&limit=$limit';
 
     try {
@@ -31,14 +33,14 @@ class GrupoRepository implements IGroup {
         final dynamic jsonBody = jsonDecode(response.body);
         List<dynamic> grupoList;
 
-        switch (index) {
-          case 0:
+        switch (group) {
+          case Group.akatsuki:
             grupoList = jsonBody['akatsuki'] ?? [];
             break;
-          case 1:
+          case Group.tailedBeast:
             grupoList = jsonBody['tailedBeasts'] ?? [];
             break;
-          case 2:
+          case Group.kara:
             grupoList = jsonBody['kara'] ?? [];
             break;
           default:

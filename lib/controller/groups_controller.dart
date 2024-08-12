@@ -17,12 +17,12 @@ class GrupoController extends GetxController {
 
   // Método para buscar personagens de um grupo
   //index se refere-se ao grupo que será requisitado as informações
-  Future<void> fetchGrupo(int index) async {
+  Future<void> fetchGrupo(Group gruop) async {
     isLoading.value = true;
     errorMessage.value = '';
     try {
       // Busca os personagens do grupo usando o repositório
-      final resultado = await _grupoRepository.getGrupo(index);
+      final resultado = await _grupoRepository.getGrupo(gruop);
       personagens.value = resultado;
     } catch (e) {
       errorMessage.value = 'Erro ao carregar personagens: $e';
