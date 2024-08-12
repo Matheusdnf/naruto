@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/models/models_api/model_character.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 
 class Detalhedocaracter extends StatelessWidget {
   @override
@@ -116,8 +116,8 @@ class Detalhedocaracter extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start, // Alinha o conteúdo à esquerda
                     children: [
-                      Text('Mangá: ${personagem.debut.manga ?? 'Não especificado'}'),
-                      Text('Anime: ${personagem.debut.anime ?? 'Não especificado'}'),
+                      Text('Mangá: ${personagem.debut.manga }'),
+                      Text('Anime: ${personagem.debut.anime }'),
                     ],
                   ),
                 ),
