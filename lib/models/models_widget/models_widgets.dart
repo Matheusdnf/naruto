@@ -207,6 +207,7 @@ class ImagemBackground extends StatelessWidget {
   }
 }
 
+//FELPS COMENTA O CÓDIGO DEPOIS
 // Mostragem de cards
 class VillagePageView extends StatelessWidget {
   final PageController pageController;
