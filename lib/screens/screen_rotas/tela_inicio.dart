@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:teste/models_widget/models_widgets.dart';
-import 'package:teste/scream/screen_details_app/about.dart';
-import 'package:teste/scream/screen_details_app/logo_app.dart';
+import 'package:teste/models/models_widget/models_widgets.dart';
+import 'package:teste/screens/screens_info_app/about.dart';
+import 'package:teste/screens/screens_info_app/logo_app.dart';
 
 class FirstScream extends StatelessWidget {
   @override

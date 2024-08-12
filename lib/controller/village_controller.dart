@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:teste/models/model_character.dart';
+import 'package:teste/models/models_api/model_character.dart';
 import 'package:teste/repository/repository_village.dart';
 
 class VillageController extends GetxController {
