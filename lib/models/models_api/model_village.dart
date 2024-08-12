@@ -1,4 +1,4 @@
-import 'package:teste/models/model_character.dart';
+import 'package:teste/models/models_api/model_character.dart';
 
 class Village {
   final int id;

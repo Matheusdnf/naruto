@@ -1,35 +1,53 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:teste/models/model_character.dart';
+import 'package:teste/models/models_api/model_character.dart';
 
-abstract class IPersonal {
-  Future<List<Character>> getPersonal(int index);
+abstract class IGroup {
+  Future<List<Character>> getGrupo(Group group , {int page = 1, int limit = 45});
 }
 
-class Personalreposity implements IPersonal {
-  @override
-  //lista com os filtros dos grupos
-  // final List<String> _filter_group = [
-  // final String 'Konohagakure';
-  // final String 'Allied Shinobi Forces';
-  // final String 'Akatsuki';
-  // ];
+enum Group {
+  akatsuki,
+  tailedBeast,
+  kara,
+}
 
-  //lista com os filtros dos teams
-  // final List<String> _filter_teams = [
-  // final String 'Team 7';
-  // final String 'Kakashi';
-  // ];
-  Future<List<Character>> getPersonal(int index) async {
-    final url = 'https://narutodb.xyz/api/character';
+class GrupoRepository implements IGroup {
+  //os grupos que serão carregados 
+  final Map<Enum, String> groupUrls = {
+    Group.akatsuki: 'https://narutodb.xyz/api/akatsuki',
+    Group.tailedBeast:'https://narutodb.xyz/api/tailed-beast',
+    Group.kara:'https://narutodb.xyz/api/kara',
+  };
+
+  @override
+  Future<List<Character>> getGrupo(Group group, {int page = 1, int limit = 45}) async {
+    final url = groupUrls[group];
+    
+    final requestUrl = '$url?page=$page&limit=$limit';
 
     try {
-      final response = await http.get(Uri.parse(url));
+      final response = await http.get(Uri.parse(requestUrl));
 
       if (response.statusCode == 200) {
         final dynamic jsonBody = jsonDecode(response.body);
-        final List<dynamic> vilaList = jsonBody['characters'] ?? [];
-        List<Character> personagens = vilaList
+        List<dynamic> grupoList;
+
+        switch (group) {
+          case Group.akatsuki:
+            grupoList = jsonBody['akatsuki'] ?? [];
+            break;
+          case Group.tailedBeast:
+            grupoList = jsonBody['tailedBeasts'] ?? [];
+            break;
+          case Group.kara:
+            grupoList = jsonBody['kara'] ?? [];
+            break;
+          default:
+            throw Exception('Índice de grupo inválido');
+        }
+
+        List<Character> personagens = grupoList
             .where((json) =>
                 json['images'] != null &&
                 json['images'].isNotEmpty &&
@@ -39,11 +57,12 @@ class Personalreposity implements IPersonal {
                 (json['debut']['anime'] != null || json['debut']['manga'] != null))
             .map((json) => Character.fromJson(json))
             .toList();
+
         return personagens;
       } else if (response.statusCode == 404) {
-        throw Exception("Não encontrado");
+        throw Exception('Grupo não encontrado');
       } else {
-        throw Exception('Erro ao buscar personagens');
+        throw Exception('Erro ao buscar personagens: ${response.statusCode}');
       }
     } catch (e) {
       print('Erro: $e');

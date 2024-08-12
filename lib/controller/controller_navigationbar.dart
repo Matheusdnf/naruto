@@ -2,8 +2,9 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class NavController extends GetxController {
+  //observar a mudança do index
   var currentIndex = 0.obs;
-  final PageController pageController = PageController();
+  final PageController pageController = PageController(initialPage: 0);
 
   void changePage(int index) {
     currentIndex.value = index;
