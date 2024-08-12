@@ -4,27 +4,28 @@ import 'package:teste/models/models_api/model_character.dart';
 
 // Interface para definir a estrutura dos repositórios de grupo
 abstract class IGroup {
-  Future<List<Character>> getGrupo(int index, {int page = 1, int limit = 45});
+  Future<List<Character>> getGrupo(Group group , {int page = 1, int limit = 45});
+}
+
+enum Group {
+  akatsuki,
+  tailedBeast,
+  kara,
 }
 
 // Implementação do repositório para buscar dados dos grupos
 class GrupoRepository implements IGroup {
-  // Mapeia índices de grupo para URLs da API
-  final Map<int, String> groupUrls = {
-    0: 'https://narutodb.xyz/api/akatsuki', // URL para o grupo Akatsuki
-    1: 'https://narutodb.xyz/api/tailed-beast', // URL para o grupo Tailed Beasts
-    2: 'https://narutodb.xyz/api/kara', // URL para o grupo Kara
+  //os grupos que serão carregados 
+  final Map<Enum, String> groupUrls = {
+    Group.akatsuki: 'https://narutodb.xyz/api/akatsuki',
+    Group.tailedBeast:'https://narutodb.xyz/api/tailed-beast',
+    Group.kara:'https://narutodb.xyz/api/kara',
   };
 
   @override
-  Future<List<Character>> getGrupo(int index, {int page = 1, int limit = 45}) async {
-    // Obtém a URL correspondente ao índice do grupo
-    final url = groupUrls[index];
-    if (url == null) {
-      throw Exception('Índice de grupo inválido'); // Lança exceção se o índice for inválido
-    }
-
-    // Monta a URL da requisição com parâmetros de paginação
+  Future<List<Character>> getGrupo(Group group, {int page = 1, int limit = 45}) async {
+    final url = groupUrls[group];
+    
     final requestUrl = '$url?page=$page&limit=$limit';
 
     try {
@@ -37,16 +38,15 @@ class GrupoRepository implements IGroup {
         final dynamic jsonBody = jsonDecode(response.body);
         List<dynamic> grupoList;
 
-        // Dependendo do índice do grupo, extrai a lista apropriada do JSON
-        switch (index) {
-          case 0:
-            grupoList = jsonBody['akatsuki'] ?? []; // Lista para Akatsuki
+        switch (group) {
+          case Group.akatsuki:
+            grupoList = jsonBody['akatsuki'] ?? [];
             break;
-          case 1:
-            grupoList = jsonBody['tailedBeasts'] ?? []; // Lista para Tailed Beasts
+          case Group.tailedBeast:
+            grupoList = jsonBody['tailedBeasts'] ?? [];
             break;
-          case 2:
-            grupoList = jsonBody['kara'] ?? []; // Lista para Kara
+          case Group.kara:
+            grupoList = jsonBody['kara'] ?? [];
             break;
           default:
             throw Exception('Índice de grupo inválido'); // Lança exceção se o índice for inválido

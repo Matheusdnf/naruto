@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/controller/controller_navigationbar.dart';
-import '../screens/screen_rotas/tela_de_vilas.dart';
-import '../screens/screen_rotas/tela_de_grupos.dart';
+import '../screens/screen_routes/tela_de_vilas.dart';
+import '../screens/screen_routes/tela_de_grupos.dart';
 
 class Teste extends StatelessWidget {
   Teste({super.key});
