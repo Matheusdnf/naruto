@@ -22,13 +22,13 @@ class GrupoRepository implements IGroup {
     Group.kara:'https://narutodb.xyz/api/kara',
   };
 
+
   @override
   Future<List<Character>> getGrupo(Group group, {int page = 1, int limit = 45}) async {
     final url = groupUrls[group];
-    
+
     final requestUrl = '$url?page=$page&limit=$limit';
 
-    try {
       // Faz a requisição HTTP para buscar os dados
       final response = await http.get(Uri.parse(requestUrl));
 
@@ -68,10 +68,6 @@ class GrupoRepository implements IGroup {
         throw Exception('Grupo não encontrado'); // Lança exceção se o grupo não for encontrado
       } else {
         throw Exception('Erro ao buscar personagens: ${response.statusCode}'); // Lança exceção para outros erros
-      }
-    } catch (e) {
-      print('Erro: $e'); // Imprime o erro no console
-      throw e; // Lança o erro para que o chamador possa tratá-lo
+      } 
     }
   }
-}

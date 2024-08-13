@@ -11,7 +11,6 @@ class Vilareposity implements IVilareposity {
   Future<List<Character>> getVila(int escolha) async {
     final url = 'https://narutodb.xyz/api/village/$escolha';
 
-    try {
       final response = await http.get(Uri.parse(url));
 
       // print('Status Code: ${response.statusCode}');
@@ -38,10 +37,6 @@ class Vilareposity implements IVilareposity {
         throw Exception("Não encontrado");
       } else {
         throw Exception('Falha ao carregar os personagens');
-      }
-    } catch (e) {
-      print('Erro na requisição: $e');
-      throw e;
     }
   }
 }
