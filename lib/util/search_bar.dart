@@ -7,12 +7,12 @@ class SearchBarApp extends StatefulWidget {
   final Widget sortButton; // Botão de ordenação que será exibido ao lado da barra de pesquisa.
 
   const SearchBarApp({
-    Key? key,
+    super.key,
     required this.searchController,
     required this.onChanged,
     required this.name,
     required this.sortButton,
-  }) : super(key: key);
+  });
 
   @override
   State<SearchBarApp> createState() => _SearchBarAppState();

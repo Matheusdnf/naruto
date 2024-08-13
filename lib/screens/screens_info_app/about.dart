@@ -125,7 +125,7 @@ class Content extends StatelessWidget {
 class DeveloperInfo extends StatelessWidget {
   const DeveloperInfo({super.key});
 
-  void abrir_github(String git) async {
+  void abrirgithub(String git) async {
     var github = git;
     if (await canLaunchUrl(Uri.parse(github))) {
       await launchUrl(Uri.parse(github));
@@ -181,40 +181,40 @@ class DeveloperInfo extends StatelessWidget {
           socialmedia: [
             ModelButton(
               nome: 'Email',
-              icon: Icon(Icons.email_outlined),
+              icon: const Icon(Icons.email_outlined),
               onPressed: () => _launchEmail('matheusdiniz870@gmail.com'),
             ),
             ModelButton(
               nome: 'Instagram',
-              icon: Icon(Bootstrap.instagram),
+              icon: const Icon(Bootstrap.instagram),
               onPressed: () => abrirInstagram('https://www.instagram.com/Matheusdnz_'),
             ),
             ModelButton(
               nome: 'Github',
-              icon: Icon(Bootstrap.github),
-              onPressed: () => abrir_github('https://github.com/Matheusdnf'),
+              icon: const Icon(Bootstrap.github),
+              onPressed: () => abrirgithub('https://github.com/Matheusdnf'),
             ),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         InfoDev(
           name: 'Felipe Augusto Araújo da Cunha',
           image: 'https://i.ytimg.com/vi/kWC-mNkGKtk/maxresdefault.jpg',
           socialmedia: [
             ModelButton(
               nome: 'Email',
-              icon: Icon(Icons.email_outlined),
+              icon: const Icon(Icons.email_outlined),
               onPressed: () => _launchEmail('araujofelipe54@gmail.com'),
             ),
             ModelButton(
               nome: 'Instagram',
-              icon: Icon(Bootstrap.instagram),
+              icon: const Icon(Bootstrap.instagram),
               onPressed: () => abrirInstagram('https://www.instagram.com/august_felpss/'),
             ),
             ModelButton(
               nome: 'Github',
-              icon: Icon(Bootstrap.github),
-              onPressed: () => abrir_github('https://github.com/fel-ps'),
+              icon: const Icon(Bootstrap.github),
+              onPressed: () => abrirgithub('https://github.com/fel-ps'),
             ),
           ],
         ),

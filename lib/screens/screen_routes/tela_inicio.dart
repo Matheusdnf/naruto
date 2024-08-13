@@ -5,6 +5,8 @@ import 'package:teste/screens/screens_info_app/about.dart';
 import 'package:teste/screens/screens_info_app/logo_app.dart';
 
 class FirstScream extends StatelessWidget {
+  const FirstScream({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,18 +26,18 @@ class FirstScream extends StatelessWidget {
                       nome: 'Desenvolvedores',
                       icon: const Icon(Icons.people_alt_outlined),
                       onPressed: (){
-                        Get.to(AboutPage());
+                        Get.to(const AboutPage());
                       }
                     ),
                   ],
                 ),
               ),
-              Center(
+              const Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     LogoApp(),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10),
                     ButtonInicial(),
                   ],
                 ),

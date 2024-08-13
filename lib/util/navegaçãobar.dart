@@ -45,7 +45,7 @@ class NavBar extends StatelessWidget {
         onTap: (index) {
           _navController.changePage(index);
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.houseboat), label: "Vilas"),
           BottomNavigationBarItem(icon: Icon(Icons.groups), label: "Grupos"),
         ],

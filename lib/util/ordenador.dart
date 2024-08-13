@@ -5,10 +5,10 @@ class SortButton extends StatelessWidget {
   final Icon icon;
 
   const SortButton({
-    Key? key,
+    super.key,
     required this.onSelected,
     required this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

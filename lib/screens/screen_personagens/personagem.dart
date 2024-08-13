@@ -4,6 +4,8 @@ import 'package:teste/models/models_api/model_character.dart';
 
 
 class Detalhedocaracter extends StatelessWidget {
+  const Detalhedocaracter({super.key});
+
   @override
   Widget build(BuildContext context) {
     final Character personagem = Get.arguments as Character;
@@ -30,7 +32,7 @@ class Detalhedocaracter extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Center(
                     child: ClipOval(
-                      child: Container(
+                      child: SizedBox(
                         width: 122,
                         height: 122,
                         child: Image.network(
@@ -50,22 +52,22 @@ class Detalhedocaracter extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.arrow_back),
+                      icon: const Icon(Icons.arrow_back),
                       onPressed: () {
                         if (_pageController.hasClients) {
                           _pageController.previousPage(
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                           );
                         }
                       },
                     ),
                     IconButton(
-                      icon: Icon(Icons.arrow_forward),
+                      icon: const Icon(Icons.arrow_forward),
                       onPressed: () {
                         if (_pageController.hasClients) {
                           _pageController.nextPage(
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                           );
                         }
@@ -79,7 +81,7 @@ class Detalhedocaracter extends StatelessWidget {
               'Jutsus:',
               style: TextStyle(fontFamily: 'NJNaruto'),
             ),
-            Container(
+            SizedBox(
               width: screenWidth, // Largura total da tela
               child: Card(
                 margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
@@ -103,7 +105,7 @@ class Detalhedocaracter extends StatelessWidget {
               'Estreia:',
               style: TextStyle(fontFamily: 'NJNaruto'),
             ),
-            Container(
+            SizedBox(
               width: screenWidth, // Largura total da tela
               child: Card(
                 margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),

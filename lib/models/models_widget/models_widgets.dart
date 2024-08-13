@@ -17,7 +17,7 @@ class ModelButton {
 class MyButton extends StatelessWidget {
   final List<ModelButton> modelo;
 
-  MyButton({this.modelo = const []});
+  const MyButton({super.key, this.modelo = const []});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class InfoDev extends StatelessWidget{
   final String image; 
   final List<ModelButton> socialmedia;
 
-  InfoDev({required this.name,required this.image,required this.socialmedia
+  const InfoDev({super.key, required this.name,required this.image,required this.socialmedia
   });
 
   @override
@@ -81,7 +81,7 @@ class InfoDev extends StatelessWidget{
                   ),
                   textAlign: TextAlign.justify,
                 ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 MyButton(
                   modelo: socialmedia,
                 )
@@ -97,9 +97,11 @@ class InfoDev extends StatelessWidget{
 
 
 class ButtonInicial extends StatelessWidget {
+  const ButtonInicial({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       child: ElevatedButton(
         onPressed: () {
@@ -134,7 +136,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double fontSize;
   final Color subtitleColor;
 
-  CustomAppBar({
+  const CustomAppBar({super.key, 
     required this.title,
     required this.subtitle,
     this.fontSize = 24,
@@ -172,14 +174,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 // Imagem de fundo
 class ImagemBackground extends StatelessWidget {
   final String imagePath;
 
-  const ImagemBackground({required this.imagePath, Key? key}) : super(key: key);
+  const ImagemBackground({required this.imagePath, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -217,7 +219,7 @@ class VillagePageView extends StatelessWidget {
   final int initialPage;  // Índice da página inicial a ser exibida.
 
   // Construtor da classe. Define valores obrigatórios e um valor padrão para a página inicial.
-  VillagePageView({
+  const VillagePageView({super.key, 
     required this.pageController,
     required this.imageAssets,
     required this.villageNames,
@@ -312,10 +314,10 @@ class CharacterCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const CharacterCard({
-    Key? key,
+    super.key,
     required this.character,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -91,7 +91,7 @@ class _VilaScreenState extends State<VilaScreen> {
                 return CharacterCard(
                   character: vila, // Passa o personagem para o cartão
                   onTap: () {
-                    Get.to(() => Detalhedocaracter(), arguments: vila); // Navega para a tela de detalhes do personagem ao clicar no cartão
+                    Get.to(() => const Detalhedocaracter(), arguments: vila); // Navega para a tela de detalhes do personagem ao clicar no cartão
                   },
                 );
               },

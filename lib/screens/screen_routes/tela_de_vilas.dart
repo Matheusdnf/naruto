@@ -26,7 +26,7 @@ class VillagesPage extends StatelessWidget {
     });
 
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: 'Naruto',
         subtitle: ' Universe',
       ),
