@@ -18,9 +18,10 @@ class GroupScreen extends StatefulWidget {
 
 class _GroupScreenState extends State<GroupScreen> {
   late String groupName;
-  final GrupoController controller = Get.find(); // Usa o mesmo controlador já instanciado
+  final GrupoController controller = Get.put(GrupoController());
   final TextEditingController _searchController = TextEditingController();
   final RxBool nameFilter = false.obs;
+
 
   @override
   void initState() {
@@ -39,7 +40,6 @@ class _GroupScreenState extends State<GroupScreen> {
   Widget build(BuildContext context) {
     return 
     Scaffold(
-
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: AppBar(
@@ -63,30 +63,23 @@ class _GroupScreenState extends State<GroupScreen> {
           ),
         ),
       ),
-
       body: 
-        Expanded(
-          child: Obx(() {
+           Obx(() {
             if (controller.isLoading.value) {
               return const Center(child: CircularProgressIndicator());
-            } else if (controller.personagens.isEmpty) {
+            } else if (controller.personagens.isEmpty ) {
               return const Center(child: Text('Nenhum personagem encontrado.'));
             } else {
-              final filteredPersonagens = controller.personagens.where((character) {
-                final query = _searchController.text.toLowerCase();
-                return character.name.toLowerCase().contains(query);
-              }).toList();
-
+              final filteredPersonagens = controller.personagens.
+              //comparando se a string de busca é a mesma com a que está no controller
+              //filtrando uma lista de personagens com base no que está sendo buscada
+              where((character) =>character.name.toLowerCase().contains(_searchController.text.toLowerCase()))
+              .toList();
               if (nameFilter.value) {
                 filteredPersonagens.sort((a, b) => a.name.compareTo(b.name)); // Ordena de A->Z
               } else {
                 filteredPersonagens.sort((a, b) => b.name.compareTo(a.name)); // Ordena de Z->A
               }
-
-
-              if (filteredPersonagens.isEmpty) {
-                return const Center(child: Text('Nenhum personagem encontrado.'));
-              } else {
                 return ListView.builder(
                   itemCount: filteredPersonagens.length,
                   itemBuilder: (context, index) {
@@ -94,15 +87,14 @@ class _GroupScreenState extends State<GroupScreen> {
                       return CharacterCard(
                       character: personagem,
                       onTap: () {
-                        Get.to(() => Detalhedocaracter(), arguments: personagem);
+                        Get.to(() => const Detalhedocaracter(), arguments: personagem);
                       },
                     );
                   },
                 );
               }
             }
-          }),
-        ),
-    );
+        )
+      );  
   }
 }

@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teste/models/models_widget/models_widgets.dart';
 import 'package:teste/repository/repository_groups.dart';
-import '../../controller/groups_controller.dart';
 import '../screen_personagens/personagens_grupos.dart';
 
 // Tela que exibe opções de grupos para o usuário selecionar
 class GruposPage extends StatelessWidget {
+  //preservar o estado de widgets durante a reconstrução e ajuda na manutenção da identidade dos widgets.
   const GruposPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     // Instancia o controlador GrupoController com GetX
-    final GrupoController grupoController = Get.put(GrupoController());
-
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: 'Naruto', // Título do AppBar
         subtitle: ' Universe', // Subtítulo do AppBar
       ),
@@ -23,44 +20,34 @@ class GruposPage extends StatelessWidget {
         children: [
           // Fundo da tela com imagem
           const ImagemBackground(imagePath: 'lib/assets/assets/akatsoca.jpg'),
-          SafeArea(
-            child: Obx(() {
-              // Observa mudanças no controlador usando GetX
-              if (grupoController.errorMessage.value.isNotEmpty) {
-                // Se houver uma mensagem de erro, exibe-a
-                return Center(child: Text(grupoController.errorMessage.value));
-              } else {
-                // Caso contrário, exibe os botões de seleção de grupo
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Centraliza os itens na coluna
-                    crossAxisAlignment: CrossAxisAlignment.center, // Centraliza os itens na coluna
-                    children: [
-                      const Text(
-                        'Selecione um grupo', // Texto informativo
-                        style: TextStyle(
-                          color: Colors.white, // Cor do texto
-                          fontSize: 30, // Tamanho da fonte
-                          fontFamily: 'NJNaruto', // Fonte personalizada
-                          fontWeight: FontWeight.bold, // Peso da fonte
-                        ),
-                      ),
-                      SizedBox(height: 80), // Espaço entre o texto e os botões
-                      _buildGroupButton(context, 'Akatsuki',Group.akatsuki ),
-                      SizedBox(height: 20), // Espaço entre os botões
-                      _buildGroupButton(context, 'Tailed Beasts', Group.tailedBeast),
-                      SizedBox(height: 20), // Espaço entre os botões
-                      _buildGroupButton(context, 'Kara', Group.kara),
-                    ],
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center, // Centraliza os itens na coluna
+                crossAxisAlignment: CrossAxisAlignment.center, // Centraliza os itens na coluna
+                children: [
+                  const Text(
+                    'Selecione um grupo', // Texto informativo
+                    style: TextStyle(
+                      color: Colors.white, // Cor do texto
+                      fontSize: 30, // Tamanho da fonte
+                      fontFamily: 'NJNaruto', // Fonte personalizada
+                      fontWeight: FontWeight.bold, // Peso da fonte
+                    ),
                   ),
-                );
-              }
-            })
-          ),
-        ]
-      ),
-    );
-  }
+                  const SizedBox(height: 80), // Espaço entre o texto e os botões
+                  _buildGroupButton(context, 'Akatsuki',Group.akatsuki ),
+                  const SizedBox(height: 20), // Espaço entre os botões
+                  _buildGroupButton(context, 'Tailed Beasts', Group.tailedBeast),
+                  const SizedBox(height: 20), // Espaço entre os botões
+                  _buildGroupButton(context, 'Kara', Group.kara),
+                ],
+              ),
+            ),
+          ],
+        )
+      );
+    }
+            
 
   Widget _buildGroupButton(BuildContext context, String groupName, Group group) {
     return ElevatedButton(
