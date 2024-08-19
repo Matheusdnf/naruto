@@ -13,11 +13,10 @@
 
 <br>
 
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img alt="projeto" src="lib/assets/assets/home2.png" width="50%" style="margin-right: 10px;">
-    <img alt="projeto" src="lib/assets/assets/home1.png" width="50%" style="margin-left: 10px;">
+<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+    <img alt="projeto" src="lib/assets/assets/home2.png" width="40%" style="margin-right: 10px;">
+    <img alt="projeto" src="lib/assets/assets/home1.png" width="39.7%" style="margin-left: 10px;">
 </div>
-
 
 
 ## 🚀 Tecnologias
