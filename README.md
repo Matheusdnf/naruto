@@ -1,16 +1,46 @@
-# teste
+<h1 align="center"> Naruto Universe </h1>
 
-A new Flutter project.
+<p align="center">
+    Projeto para a matéria de Programação Orientada a Objetos - UFRN.
+</p>
 
-## Getting Started
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-devs">Devs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-api">Api</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-This project is a starting point for a Flutter application.
+<br>
 
-A few resources to get you started if this is your first Flutter project:
+<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+    <img alt="projeto" src="lib/assets/assets/home2.png" width="40%" style="margin-right: 10px;">
+    <img alt="projeto" src="lib/assets/assets/home1.png" width="39.7%" style="margin-left: 10px;">
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Flutter e Dart
+- Git e Github
+- Vscode
+- Getx
+- Api
+
+## 💻 Projeto
+
+Este projeto foi desenvolvido para a matéria de POO da faculdade (UFRN). Tem como temática a série japonesa Naruto, contendo algumas informanções
+sobre os personagens do anime, servindo como uma "pokedéx".
+
+## 🕵️ Devs
+
+- Matheus Diniz Fernandes
+- Felipe Augusto Araújo da Cunha
+
+## 🎲 API
+
+https://narutodb.xyz/
+
+

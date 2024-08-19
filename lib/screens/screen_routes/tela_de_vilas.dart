@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:teste/controller/village_controller.dart';
 import 'package:teste/models/models_widget/models_widgets.dart';
 import 'package:teste/screens/screen_personagens/personagens_vila.dart';
+//CNTRL+ALT
 
 class VillagesPage extends StatelessWidget {
   const VillagesPage({super.key});

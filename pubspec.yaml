@@ -70,6 +70,8 @@ flutter:
     - lib/assets/assets/desc.png
     - lib/assets/assets/tropa.jpg
     - lib/assets/assets/pain.jpg
+    - lib/assets/assets/home1.png
+    - lib/assets/assets/home2.png
     - lib/assets/assets/akatsoca.jpg
     - lib/assets/fonts/njnaruto.ttf
     - lib/assets/villages/konohagakure.jpg
